@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R&D Electrical & Instrumentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Background Pattern for Hero */
+        .bg-grid-pattern {
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 antialiased bg-slate-50">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-10 h-10 bg-brand-600 rounded-lg flex items-center justify-center text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <div>
+                        <span class="font-bold text-xl tracking-tight text-slate-900 block leading-none">R&D E&I</span>
+                        <span class="text-xs text-brand-600 font-medium tracking-wider uppercase">Division</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Tentang Kami</a>
+                    <a href="#capabilities" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Kapabilitas</a>
+                    <a href="#projects" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Proyek</a>
+                    <a href="#facilities" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Fasilitas</a>
+                    <a href="#contact" class="px-5 py-2.5 rounded-full bg-slate-900 text-white text-sm font-medium hover:bg-brand-600 transition-colors shadow-md">Hubungi Tim</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-slate-900 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#about" class="block px-3 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600 rounded-md">Tentang Kami</a>
+                <a href="#capabilities" class="block px-3 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600 rounded-md">Kapabilitas</a>
+                <a href="#projects" class="block px-3 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600 rounded-md">Proyek</a>
+                <a href="#facilities" class="block px-3 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600 rounded-md">Fasilitas</a>
+                <a href="#contact" class="block px-3 py-3 mt-4 text-center text-base font-medium bg-brand-600 text-white rounded-md shadow-sm">Hubungi Tim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-950 text-white">
+        <!-- Abstract Background -->
+        <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
+        <div class="absolute -top-64 -right-64 w-96 h-96 bg-brand-600 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+        <div class="absolute -bottom-64 -left-64 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-sm font-medium mb-6">
+                    <span class="flex h-2 w-2 rounded-full bg-brand-400"></span>
+                    Research & Development Hub
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight">
+                    Mendorong Inovasi <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-blue-300">Elektrikal & Instrumentasi</span> Masa Depan
+                </h1>
+                <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl leading-relaxed">
+                    Kami merekayasa solusi sistem kontrol canggih, desain sirkuit presisi, dan arsitektur IoT industrial untuk mendigitalisasi dan mengotomatisasi proses industri Anda.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#projects" class="inline-flex justify-center items-center px-6 py-3.5 border border-transparent text-base font-medium rounded-lg text-slate-900 bg-white hover:bg-slate-100 transition-colors shadow-lg shadow-white/10">
+                        Lihat Inovasi Kami
+                    </a>
+                    <a href="#contact" class="inline-flex justify-center items-center px-6 py-3.5 border border-slate-700 text-base font-medium rounded-lg text-white hover:bg-slate-800 transition-colors">
+                        Konsultasi Teknis
+                    </a>
+                </div>
+            </div>
+
+            <!-- Stats/Metrics -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 pt-10 border-t border-slate-800">
+                <div>
+                    <div class="text-3xl font-bold text-white mb-1">25+</div>
+                    <div class="text-sm text-slate-400">Paten & Desain Industri</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-white mb-1">50+</div>
+                    <div class="text-sm text-slate-400">Prototipe Berhasil</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-white mb-1">15</div>
+                    <div class="text-sm text-slate-400">Engineer Tersertifikasi</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-white mb-1">99.9%</div>
+                    <div class="text-sm text-slate-400">Keandalan Sistem</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <div class="lg:w-1/2">
+                    <h2 class="text-brand-600 font-semibold tracking-wide uppercase text-sm mb-3">Tentang Divisi</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Menjembatani Teori ke Aplikasi Industri Nyata</h3>
+                    <p class="text-slate-600 mb-6 text-lg">
+                        Divisi R&D Electrical & Instrumentation dibentuk untuk merespon kebutuhan industri akan automasi yang lebih cerdas dan efisien. Kami melakukan riset terapan mulai dari level komponen hingga integrasi sistem skala pabrik.
+                    </p>
+                    <p class="text-slate-600 mb-8">
+                        Fokus utama kami adalah pada pengembangan perangkat keras kustom, sistem telemetri jarak jauh, dan algoritma kontrol cerdas yang tahan banting (robust) terhadap lingkungan industri yang ekstrem.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-100 flex items-center justify-center mt-1">
+                                <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <p class="ml-3 text-slate-700">Rapid Prototyping PCB & Panel Kontrol</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-100 flex items-center justify-center mt-1">
+                                <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <p class="ml-3 text-slate-700">Reverse Engineering & Troubleshooting Sistem Kompleks</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-100 flex items-center justify-center mt-1">
+                                <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <p class="ml-3 text-slate-700">Integrasi IT/OT & Industrial IoT (IIoT)</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="lg:w-1/2 relative">
+                    <div class="rounded-2xl overflow-hidden shadow-2xl relative">
+                        <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&q=80&w=1000" alt="Engineer working on circuit" class="w-full h-auto object-cover" onerror="this.src='https://via.placeholder.com/800x600?text=R%26D+Laboratory'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+                    </div>
+                    <!-- Decorative element -->
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-brand-100 rounded-full -z-10"></div>
+                    <div class="absolute -top-6 -left-6 w-24 h-24 border-4 border-slate-100 rounded-full -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Capabilities -->
+    <section id="capabilities" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-brand-600 font-semibold tracking-wide uppercase text-sm mb-3">Area Keahlian</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Kapabilitas Inti R&D</h3>
+                <p class="text-slate-600">Dari konseptualisasi hingga purwarupa yang siap produksi, kami memiliki fasilitas dan keahlian untuk mengembangkan sistem kelistrikan dan instrumen yang canggih.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="w-14 h-14 bg-brand-50 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Hardware & Embedded Systems</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Desain skematik, layout PCB multilayer, dan pemrograman mikrokontroler (ARM Cortex, ESP32) untuk aplikasi industrial custom.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="w-14 h-14 bg-brand-50 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m12 16 4-4-4-4"></path><path d="M8 12h8"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Sensor & Instrumentasi</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Pengembangan dan kalibrasi sensor presisi tinggi untuk suhu, tekanan, aliran, dan vibrasi. Integrasi transduser cerdas dengan protokol HART/Fieldbus.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="w-14 h-14 bg-brand-50 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">PLC & SCADA Control</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Arsitektur sistem kontrol terdistribusi (DCS), pemrograman PLC (Siemens, Allen-Bradley), dan perancangan antarmuka HMI/SCADA yang intuitif.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="w-14 h-14 bg-brand-50 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Power Electronics</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Riset desain inverter, konverter DC-DC, manajemen baterai (BMS), dan optimasi efisiensi pada sistem panel surya atau motor drive industri.
+                    </p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="w-14 h-14 bg-brand-50 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12s2.545-5 7-5c4.454 0 7 5 7 5s-2.546 5-7 5c-4.455 0-7-5-7-5z"></path><path d="M12 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path><path d="M21 17v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2"></path><path d="M21 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Industrial Vision & AI</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Implementasi machine vision untuk inspeksi kualitas otomatis, deteksi anomali peralatan dengan machine learning berbasis edge computing.
+                    </p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="w-14 h-14 bg-brand-50 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">IoT & Telemetry</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Desain node sensor nirkabel (LoRaWAN, NB-IoT) dan gateway untuk akuisisi data jarak jauh guna mendukung inisiatif Industri 4.0.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Portfolio -->
+    <section id="projects" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div class="max-w-2xl">
+                    <h2 class="text-brand-400 font-semibold tracking-wide uppercase text-sm mb-3">Portofolio R&D</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold mb-4">Proyek & Inovasi Terkini</h3>
+                    <p class="text-slate-400 text-lg">Beberapa studi kasus dari sistem yang telah kami kembangkan, uji, dan implementasikan di lapangan.</p>
+                </div>
+                <div class="hidden md:block">
+                    <button class="text-brand-400 hover:text-white font-medium flex items-center gap-2 transition-colors">
+                        Lihat Semua Proyek
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-500 transition-colors group cursor-pointer">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600" alt="Smart Grid" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://via.placeholder.com/600x400?text=Project+1'">
+                        <div class="absolute top-4 left-4 bg-brand-600 text-xs font-bold px-3 py-1 rounded-full">IIoT & Telemetri</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">Smart Substation Monitoring</h4>
+                        <p class="text-slate-400 text-sm mb-4">Sistem pemantauan termal dan vibrasi trafo secara real-time menggunakan jaringan LoRaWAN untuk memprediksi kegagalan sebelum terjadi.</p>
+                        <a href="#" class="text-brand-400 text-sm font-medium hover:text-brand-300 inline-flex items-center">
+                            Detail Studi Kasus <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-500 transition-colors group cursor-pointer">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1565229284535-2cbbe3049123?auto=format&fit=crop&q=80&w=600" alt="Control Panel" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://via.placeholder.com/600x400?text=Project+2'">
+                        <div class="absolute top-4 left-4 bg-purple-600 text-xs font-bold px-3 py-1 rounded-full">Otomasi Kontrol</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">Auto-Calibration Rig System</h4>
+                        <p class="text-slate-400 text-sm mb-4">Rancang bangun panel kontrol dan mekanik terintegrasi untuk kalibrasi instrumen fluida secara otomatis dengan presisi 0.01%.</p>
+                        <a href="#" class="text-brand-400 text-sm font-medium hover:text-brand-300 inline-flex items-center">
+                            Detail Studi Kasus <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-500 transition-colors group cursor-pointer">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=600" alt="PCB Design" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://via.placeholder.com/600x400?text=Project+3'">
+                        <div class="absolute top-4 left-4 bg-emerald-600 text-xs font-bold px-3 py-1 rounded-full">Embedded Hardware</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">Custom Edge Computing Board</h4>
+                        <p class="text-slate-400 text-sm mb-4">Desain PCB multilayer untuk prosesor AI edge, digunakan untuk analisa suara mesin (akustik) langsung di lantai pabrik.</p>
+                        <a href="#" class="text-brand-400 text-sm font-medium hover:text-brand-300 inline-flex items-center">
+                            Detail Studi Kasus <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools & Tech Stack -->
+    <section id="facilities" class="py-16 bg-white border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-8">Software & Perangkat Fasilitas R&D</h3>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <!-- Using text representations for tech stack instead of external images to ensure stability -->
+                <div class="text-xl font-bold font-mono">Altium Designer</div>
+                <div class="text-xl font-bold font-mono">AutoCAD Electrical</div>
+                <div class="text-xl font-bold font-mono">Siemens TIA Portal</div>
+                <div class="text-xl font-bold font-mono">MATLAB & Simulink</div>
+                <div class="text-xl font-bold font-mono">LabVIEW</div>
+                <div class="text-xl font-bold font-mono">SolidWorks PCB</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / CTA Section -->
+    <section id="contact" class="py-24 bg-brand-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-brand-900 rounded-3xl overflow-hidden shadow-2xl relative">
+                <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-brand-600 mix-blend-multiply opacity-50 blur-2xl"></div>
+                <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 rounded-full bg-blue-500 mix-blend-multiply opacity-50 blur-2xl"></div>
+                
+                <div class="relative z-10 flex flex-col lg:flex-row">
+                    <!-- Text Area -->
+                    <div class="p-10 lg:p-16 lg:w-1/2 text-white flex flex-col justify-center">
+                        <h3 class="text-3xl md:text-4xl font-bold mb-4">Punya Tantangan Teknikal?</h3>
+                        <p class="text-brand-100 text-lg mb-8">Tim E&I siap membantu mengonseptualisasikan, merancang, dan menguji solusi untuk permasalahan automasi atau kelistrikan di fasilitas Anda.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mr-4">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                </div>
+                                <div>
+                                    <div class="text-brand-200 text-sm">Email Tim R&D</div>
+                                    <div class="font-medium">rnd.eni@company.com</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mr-4">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                </div>
+                                <div>
+                                    <div class="text-brand-200 text-sm">Lokasi Lab</div>
+                                    <div class="font-medium">Gedung Inovasi Lt. 3, Industrial Park</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Area -->
+                    <div class="bg-white p-10 lg:p-16 lg:w-1/2 rounded-l-3xl lg:rounded-l-none">
+                        <h4 class="text-2xl font-bold text-slate-900 mb-6">Minta Konsultasi</h4>
+                        <form id="contactForm" onsubmit="event.preventDefault(); showMessage();">
+                            <div class="space-y-4">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-slate-700 mb-1">Nama Lengkap</label>
+                                    <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all" placeholder="John Doe" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Email Perusahaan</label>
+                                    <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all" placeholder="john@company.com" required>
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-slate-700 mb-1">Deskripsi Masalah / Proyek</label>
+                                    <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all resize-none" placeholder="Ceritakan singkat mengenai sistem yang ingin dirancang..." required></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-brand-600 text-white font-medium py-3 rounded-lg hover:bg-brand-700 transition-colors">
+                                    Kirim Pesan ke Tim
+                                </button>
+                                <div id="success-msg" class="hidden mt-4 p-3 bg-green-50 text-green-700 rounded-lg text-sm text-center">
+                                    Pesan berhasil dikirim. Tim R&D akan segera menghubungi Anda.
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-slate-800 rounded flex items-center justify-center text-slate-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <span class="font-bold text-lg text-white">R&D E&I Division</span>
+                </div>
+                
+                <div class="flex space-x-6 text-sm">
+                    <a href="#" class="hover:text-white transition-colors">Kebijakan Privasi</a>
+                    <a href="#" class="hover:text-white transition-colors">Syarat & Ketentuan</a>
+                    <a href="#" class="hover:text-white transition-colors">Intranet Portal</a>
+                </div>
+
+                <div class="text-sm">
+                    &copy; <script>document.write(new Date().getFullYear())</script> Divisi R&D. Hak Cipta Dilindungi.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-md');
+                nav.classList.replace('bg-white/90', 'bg-white/95');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.replace('bg-white/95', 'bg-white/90');
+            }
+        });
+
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on click
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Dummy form submission message
+        function showMessage() {
+            const msg = document.getElementById('success-msg');
+            msg.classList.remove('hidden');
+            document.getElementById('contactForm').reset();
+            setTimeout(() => {
+                msg.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
