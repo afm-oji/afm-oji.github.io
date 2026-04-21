@@ -388,32 +388,68 @@
 
                     <!-- Form Area -->
                     <form id="contactForm">
-                            <div class="space-y-4">
-                                <div>
-                                    <label for="name" class="block text-sm font-medium text-slate-700 mb-1">Nama Lengkap</label>
-                                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition">
-                                </div>
-                                <div>
-                                    <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Email Perusahaan</label>
-                                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition">
-                                </div>
-                                <div>
-                                    <label for="message" class="block text-sm font-medium text-slate-700 mb-1">Deskripsi Masalah / Proyek</label>
-                                    <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition"></textarea>
-                                </div>
-                                <button type="submit" class="w-full bg-brand-600 text-white font-medium py-3 rounded-lg hover:bg-brand-700 transition-colors">
-                                    Kirim Pesan ke Tim
-                                </button>
-                                <div id="success-msg" class="hidden mt-4 p-3 bg-green-50 text-green-700 rounded-lg text-sm text-center">
-                                    Pesan berhasil dikirim. Tim R&D akan segera menghubungi Anda.
-                                </div>
-                                <div id="error-msg" class="hidden mt-4 p-3 bg-red-50 text-red-700 rounded-lg text-sm text-center"></div>
-                            </div>
-                        </form>
-                        
-                        <script>
-                        
-                        </script>
+    <div class="space-y-4">
+        <div>
+            <label for="name" class="block text-sm font-medium text-slate-700 mb-1">Nama Lengkap</label>
+            <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition">
+        </div>
+        <div>
+            <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Email Perusahaan</label>
+            <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition">
+        </div>
+        <div>
+            <label for="message" class="block text-sm font-medium text-slate-700 mb-1">Deskripsi Masalah / Proyek</label>
+            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-brand-600 text-white font-medium py-3 rounded-lg hover:bg-brand-700 transition-colors">
+            Kirim Pesan ke Tim
+        </button>
+        <div id="success-msg" class="hidden mt-4 p-3 bg-green-50 text-green-700 rounded-lg text-sm text-center">
+            Pesan berhasil dikirim. Tim R&D akan segera menghubungi Anda.
+        </div>
+        <div id="error-msg" class="hidden mt-4 p-3 bg-red-50 text-red-700 rounded-lg text-sm text-center"></div>
+    </div>
+</form>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    // Ganti URL berikut dengan url Cloudflare Worker Anda (misal: https://foo-bar.example.workers.dev)
+    const WORKER_URL = "https://NAMA-WORKER-ANDA.workers.dev";
+    
+    // Ambil data form
+    const data = {
+        name: this.name.value,
+        email: this.email.value,
+        message: this.message.value
+    };
+
+    // Reset pesan
+    document.getElementById('success-msg').classList.add('hidden');
+    const errMsg = document.getElementById('error-msg');
+    errMsg.classList.add('hidden');
+    errMsg.innerText = '';
+
+    try {
+        const res = await fetch(WORKER_URL, {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(data)
+        });
+        const result = await res.json();
+        if(result.success){
+            document.getElementById('success-msg').classList.remove('hidden');
+            this.reset();
+        } else {
+            errMsg.classList.remove('hidden');
+            errMsg.innerText = "Pengiriman gagal. Silakan coba lagi atau hubungi tim R&D.";
+        }
+    } catch (err) {
+        errMsg.classList.remove('hidden');
+        errMsg.innerText = "Terjadi error pada koneksi. Silakan coba lagi.";
+    }
+});
+</script>
                 </div>
             </div>
         </div>
@@ -472,45 +508,6 @@
                 menu.classList.add('hidden');
             });
         });
-
-        // Dummy form submission message
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
-                            e.preventDefault();
-                            // Ganti URL berikut dengan url Cloudflare Worker Anda (misal: https://foo-bar.example.workers.dev)
-                            const WORKER_URL = "https://resendemail.rikimchd.workers.dev/";
-                            
-                            // Ambil data form
-                            const data = {
-                                name: this.name.value,
-                                email: this.email.value,
-                                message: this.message.value
-                            };
-                        
-                            // Reset pesan
-                            document.getElementById('success-msg').classList.add('hidden');
-                            const errMsg = document.getElementById('error-msg');
-                            errMsg.classList.add('hidden');
-                            errMsg.innerText = '';
-                        
-                            try {
-                                const res = await fetch(WORKER_URL, {
-                                    method: "POST",
-                                    headers: {"Content-Type": "application/json"},
-                                    body: JSON.stringify(data)
-                                });
-                                const result = await res.json();
-                                if(result.success){
-                                    document.getElementById('success-msg').classList.remove('hidden');
-                                    this.reset();
-                                } else {
-                                    errMsg.classList.remove('hidden');
-                                    errMsg.innerText = "Pengiriman gagal. Silakan coba lagi atau hubungi tim R&D.";
-                                }
-                            } catch (err) {
-                                errMsg.classList.remove('hidden');
-                                errMsg.innerText = "Terjadi error pada koneksi. Silakan coba lagi.";
-                            }
-                        });
     </script>
 </body>
 </html>
