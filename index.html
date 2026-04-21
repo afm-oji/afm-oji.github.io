@@ -415,46 +415,6 @@
                     </div>
                     <div id="error-msg" class="hidden mt-4 p-3 bg-red-50 text-red-700 rounded-lg text-sm text-center"></div>
                 </form>
-                
-                <script>
-                document.getElementById('contactForm').addEventListener('submit', async function(e) {
-                    e.preventDefault();
-                    // Ganti URL berikut dengan url Cloudflare Worker Anda (misal: https://foo-bar.example.workers.dev)
-                    const WORKER_URL = "https://resendemail.rikimchd.workers.dev/";
-                    
-                    // Ambil data form
-                    const data = {
-                        name: this.name.value,
-                        email: this.email.value,
-                        message: this.message.value
-                    };
-                
-                    // Reset pesan
-                    document.getElementById('success-msg').classList.add('hidden');
-                    const errMsg = document.getElementById('error-msg');
-                    errMsg.classList.add('hidden');
-                    errMsg.innerText = '';
-                
-                    try {
-                        const res = await fetch(WORKER_URL, {
-                            method: "POST",
-                            headers: {"Content-Type": "application/json"},
-                            body: JSON.stringify(data)
-                        });
-                        const result = await res.json();
-                        if(result.success){
-                            document.getElementById('success-msg').classList.remove('hidden');
-                            this.reset();
-                        } else {
-                            errMsg.classList.remove('hidden');
-                            errMsg.innerText = "Pengiriman gagal. Silakan coba lagi atau hubungi tim R&D.";
-                        }
-                    } catch (err) {
-                        errMsg.classList.remove('hidden');
-                        errMsg.innerText = "Terjadi error pada koneksi. Silakan coba lagi.";
-                    }
-                });
-                </script>
                 </div>
             </div>
         </div>
@@ -513,6 +473,44 @@
                 menu.classList.add('hidden');
             });
         });
+        // form email
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    // Ganti URL berikut dengan url Cloudflare Worker Anda (misal: https://foo-bar.example.workers.dev)
+                    const WORKER_URL = "https://resendemail.rikimchd.workers.dev/";
+                    
+                    // Ambil data form
+                    const data = {
+                        name: this.name.value,
+                        email: this.email.value,
+                        message: this.message.value
+                    };
+                
+                    // Reset pesan
+                    document.getElementById('success-msg').classList.add('hidden');
+                    const errMsg = document.getElementById('error-msg');
+                    errMsg.classList.add('hidden');
+                    errMsg.innerText = '';
+                
+                    try {
+                        const res = await fetch(WORKER_URL, {
+                            method: "POST",
+                            headers: {"Content-Type": "application/json"},
+                            body: JSON.stringify(data)
+                        });
+                        const result = await res.json();
+                        if(result.success){
+                            document.getElementById('success-msg').classList.remove('hidden');
+                            this.reset();
+                        } else {
+                            errMsg.classList.remove('hidden');
+                            errMsg.innerText = "Pengiriman gagal. Silakan coba lagi atau hubungi tim R&D.";
+                        }
+                    } catch (err) {
+                        errMsg.classList.remove('hidden');
+                        errMsg.innerText = "Terjadi error pada koneksi. Silakan coba lagi.";
+                    }
+                });
     </script>
 </body>
 </html>
